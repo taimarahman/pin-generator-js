@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <title>Pin Generator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="generator">
+            <h2>Pin Generator</h2>
+            <div class="generated-pin" id="generated-pin"></div>
+            <button class="btn pin-generate-btn" id="pin-generate-btn">Generate</button>
+        </div>
+        
+        <div>
+            <p>Enter your PIN</p>
+            <div class="input-pin">
+                <input type="text" maxlength="1" id="pin1" onkeyup="checkEvent(event,this)" onkeydown="checkBackspace(event, this)">
+                <input type="text" maxlength="1" id="pin2" onkeyup="checkEvent(event,this)" onkeydown="checkBackspace(event, this)">
+                <input type="text" maxlength="1" id="pin3" onkeyup="checkEvent(event,this)" onkeydown="checkBackspace(event, this)">
+                <input type="text" maxlength="1" id="pin4" onkeyup="checkEvent(event,this)" onkeydown="checkBackspace(event, this)">
+            </div>
+            <div class="keyboard">
+                <div class="row">
+                    <div class="keys">1</div>
+                    <div class="keys">2</div>
+                    <div class="keys">3</div>
+                    <div class="keys">4</div>
+                    <div class="keys">5</div>
+                    <div class="keys">6</div>
+                    <div class="keys">7</div>
+                    <div class="keys">8</div>
+                    <div class="keys">9</div>
+                    <div class="keys">0</div>
+                </div>
+                <div class="row">
+                    <div class="keys">q</div>
+                    <div class="keys">w</div>
+                    <div class="keys">e</div>
+                    <div class="keys">r</div>
+                    <div class="keys">t</div>
+                    <div class="keys">y</div>
+                    <div class="keys">u</div>
+                    <div class="keys">i</div>
+                    <div class="keys">o</div>
+                    <div class="keys">p</div>
+                </div>
+                <div class="row">
+                    <div class="keys">a</div>
+                    <div class="keys">s</div>
+                    <div class="keys">d</div>
+                    <div class="keys">f</div>
+                    <div class="keys">g</div>
+                    <div class="keys">h</div>
+                    <div class="keys">j</div>
+                    <div class="keys">k</div>
+                    <div class="keys">l</div>
+                </div>
+                <div class="row">
+                    <div class="caps" id="capslock"><i class="fa-solid fa-angles-up"></i></div>
+                    <div class="keys">z</div>
+                    <div class="keys">x</div>
+                    <div class="keys">c</div>
+                    <div class="keys">v</div>
+                    <div class="keys">b</div>
+                    <div class="keys">n</div>
+                    <div class="keys">m</div>
+                    <div class="backspace" id="backspace"><i class="fa-regular fa-delete-left"></i></div>
+                </div>
+            </div>
+            <button class="btn enter-btn" id="enter-btn">Enter</button>
+        </div>
+
+        <div class="checker" id="checker">
+            <h2>Go for it!</h2>
+            <!-- <div class="loader">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div> -->
+            <!-- <div class="success">
+                <i class="fa-regular fa-circle-check"></i>
+                <h2>Yoohoooooo!</h2>
+            </div> -->
+            
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
