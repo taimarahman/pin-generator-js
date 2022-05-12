@@ -20,24 +20,40 @@ keys.forEach(key => {
     key.setAttribute('onclick', 'keyPress(this)');
 });
 
+(function() {
+    console.log('dfv');
+    let PIN =  localStorage.getItem('PIN');
+
+    if(PIN != null) {
+        pinShowEl.innerText = PIN;
+        steFocus();
+    }
+}
+
+) ();
+
 function generatePIN() {
 
     let PIN = '';
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    for (let i = 0; i < 4; i++)
+    for (let i = 0; i < 4; i++){
         PIN += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
 
+    localStorage.setItem('PIN', PIN);
+    
     return PIN;
 }
 
 function showPIN() {
-    let PIN = generatePIN();
+    generatePIN();
+    let PIN =  localStorage.getItem('PIN');
     
     if (!generatedPINs.includes(PIN)) {
         generatedPINs.push(PIN);
         pinShowEl.innerText = PIN;
-        localStorage.setItem('PIN', PIN);
+        // localStorage.setItem('PIN', PIN);
     }
     else {
         showPIN();
@@ -135,7 +151,7 @@ function matchPIN(PIN) {
     const generatedPIN = localStorage.getItem('PIN');
     console.log(generatedPIN);
 
-    if (inputPIN === generatedPIN) {
+    if (inputPIN.toLowerCase() === generatedPIN.toLowerCase()) {
         checkerSuccess();
     }
     else {
@@ -166,6 +182,9 @@ function checkerSuccess(){
         <h2>Yoohoooooo!</h2>
     </div>
     `;
+    clearInput();
+    pinShowEl.innerText = '';
+
 }
 
 function clearInput() {
@@ -175,12 +194,17 @@ function clearInput() {
     });
 }
 
-generateBtn.addEventListener('click', () => {
-    showPIN();
+function steFocus() {
     focusedEl = pinInputEl.firstElementChild;
     focusedEl.focus();
-    checkerAnimate();
     generateBtn.innerText = 'Re-generate';
+
+}
+
+generateBtn.addEventListener('click', () => {
+    showPIN();
+    steFocus();
+    checkerAnimate();
     clearInput();
 });
 capsLockBtn.addEventListener('click', capsLock);
@@ -191,6 +215,6 @@ backSpaceBtn.addEventListener('click', () => {
 
 enterBtn.addEventListener('click', getInputPIN);
 
-window.onload = () => {
-    localStorage.clear();
-};
+// window.onload = () => {
+//     localStorage.clear();
+// };
