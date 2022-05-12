@@ -26,7 +26,7 @@ keys.forEach(key => {
 
     if(PIN != null) {
         pinShowEl.innerText = PIN;
-        steFocus();
+        setFocus();
     }
 }
 
@@ -194,7 +194,7 @@ function clearInput() {
     });
 }
 
-function steFocus() {
+function setFocus() {
     focusedEl = pinInputEl.firstElementChild;
     focusedEl.focus();
     generateBtn.innerText = 'Re-generate';
