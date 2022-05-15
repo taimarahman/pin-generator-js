@@ -21,7 +21,6 @@ keys.forEach(key => {
 });
 
 (function() {
-    console.log('dfv');
     let PIN =  localStorage.getItem('PIN');
 
     if(PIN != null) {
@@ -132,24 +131,16 @@ function capsLock() {
 // Get input PIN
 function getInputPIN() {
     let inputPINstr = '';
-    // console.log(pinInputEl);
-    // console.log(pinInputEl.children.item(0));
 
     Array.from(pinInputEl.children).forEach(child => {
-        // console.log(child);
         inputPINstr += child.value;
     });
-    console.log(inputPINstr);
-
     matchPIN(inputPINstr);
-
-    // const inputPIN = ''
 }
 
 function matchPIN(PIN) {
     const inputPIN = PIN;
     const generatedPIN = localStorage.getItem('PIN');
-    console.log(generatedPIN);
 
     if (inputPIN.toLowerCase() === generatedPIN.toLowerCase()) {
         checkerSuccess();
@@ -189,7 +180,6 @@ function checkerSuccess(){
 
 function clearInput() {
     Array.from(pinInputEl.children).forEach(child => {
-        // console.log(child);
         child.value = '';
     });
 }
